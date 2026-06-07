@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keystone — AI Strategy Intelligence for SMB Leaders</title>
+
+    <meta name="description" content="Weekly intelligence briefs for SMB leaders navigating AI. Anti-hype. Actionable. Board-ready. Every Monday: regulatory changes, tool analysis, implementation playbooks, and what to ignore. $297/month.">
+    <link rel="canonical" href="https://zmsol.github.io/keystone-brief/">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Keystone — AI Strategy Intelligence for SMB Leaders">
+    <meta property="og:description" content="The one weekly brief that makes your AI strategy hold together. Regulatory tracking, tool analysis, playbooks, and anti-hype curation. $297/month.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zmsol.github.io/keystone-brief/">
+    <meta property="og:site_name" content="Keystone Intelligence">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Keystone — AI Strategy Intelligence">
+    <meta name="twitter:description" content="Weekly intelligence for SMB leaders. No hype. No fluff. Just what changed, what matters, and what to do.">
+
+    <!-- Schema.org Product markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "Keystone AI Strategy Intelligence",
+      "description": "Weekly intelligence briefs for SMB leaders covering AI regulation, tool analysis, implementation playbooks, and anti-hype curation. Delivered every Monday.",
+      "brand": { "@type": "Brand", "name": "Keystone Intelligence" },
+      "offers": {
+        "@type": "Offer",
+        "price": "297",
+        "priceCurrency": "USD",
+        "priceValidUntil": "2027-12-31",
+        "availability": "https://schema.org/InStock",
+        "description": "Monthly subscription. Cancel anytime. Includes weekly brief, regulatory tracking, playbooks, board-ready summary."
+      },
+      "audience": {
+        "@type": "BusinessAudience",
+        "naics": "541511, 541512, 541611, 541990, 531210, 621111"
+      },
+      "category": "Business Intelligence"
+    }
+    </script>
+
+    <!-- FAQ Schema for AEO (Answer Engine Optimization) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Keystone Intelligence?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keystone is a weekly intelligence brief for SMB leaders (50-200 employees) who need to navigate AI strategy. Every Monday subscribers receive a curated brief covering regulatory changes, tool landscape analysis, an implementation playbook, and a 'what to ignore' section. It is delivered by email and takes 5 minutes to read."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is Keystone different from free AI newsletters?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free AI newsletters cover headlines for a general audience. Keystone is curated specifically for SMB leaders and includes three things free newsletters do not: regulatory tracking with specific deadlines that apply to small businesses, an implementation playbook with actionable tasks, and a 'what to ignore' section that saves subscribers from wasting money on hype."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Keystone for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keystone is for CEOs, COOs, operations directors, and founders at companies with 50 to 200 employees who need to demonstrate AI competence to customers, boards, or investors. It is also for business leaders who want to avoid wasting money on AI tools and consultants without hiring a full-time AI executive."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Keystone cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keystone is $297 per month. One tier. No upsells. Cancel anytime. Compare to $5,000 to $15,000 per month for fractional AI officers or $30,000 per year for enterprise analyst subscriptions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is included in each brief?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Each Monday brief includes: The Keystone (one-sentence executive summary), Regulatory Radar (AI laws and enforcement updates), Tool Landscape (major releases and pricing changes), Implementation Playbook (a 15-minute weekly task), What to Ignore (anti-hype curation), and a Board Brief (three bullets to forward to investors or board members)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Keystone offer consulting or one-on-one calls?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Keystone is an intelligence product, not a consulting service. There are no meetings, no phone calls, and no custom implementation projects. You receive the brief by email and act on it independently."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I cancel my subscription?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Cancel at any time with no penalties or exit fees. Your subscription ends after the current billing period and you will not receive further briefs."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #0f1926;
+            --primary-light: #1e2d3d;
+            --accent: #8a7a5a;
+            --accent-hover: #74664a;
+            --bg: #f4f2ed;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --border: #ddd8ce;
+            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            --font-body: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 28px;
+        }
+
+        /* ── Navigation ── */
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            background: var(--card-bg);
+        }
+        nav .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--primary);
+        }
+        .nav-links { display: flex; gap: 28px; align-items: center; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--text); }
+        .nav-cta {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 3px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .nav-cta:hover { background: var(--primary-light) !important; }
+
+        /* ── Hero ── */
+        .hero {
+            padding: 90px 0 70px;
+            background: var(--primary);
+            color: #e8e4dc;
+        }
+        .hero .container { max-width: 720px; text-align: center; }
+        .hero-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 4px 14px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 2px;
+            color: var(--accent-light);
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 18px;
+        }
+        .hero h1 em { font-style: normal; color: #d4c9b4; }
+        .hero p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.65);
+            max-width: 560px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+        .hero-cta-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff !important;
+            padding: 14px 32px;
+            border-radius: 3px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: background 0.2s;
+        }
+        .btn-primary:hover { background: var(--accent-hover); }
+        .btn-secondary {
+            display: inline-block;
+            color: rgba(255,255,255,0.7) !important;
+            padding: 14px 28px;
+            border-radius: 3px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.15);
+            transition: border-color 0.2s;
+        }
+        .btn-secondary:hover { border-color: rgba(255,255,255,0.35); }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-top: 44px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .hero-stat { text-align: center; }
+        .hero-stat h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .hero-stat p {
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.4);
+            margin: 0;
+        }
+
+        /* ── Sections ── */
+        .section {
+            padding: 72px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .section:last-of-type { border-bottom: none; }
+        .section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+        .section h2 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        .section .sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            max-width: 560px;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* ── Problem Grid ── */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        .problem-card {
+            background: var(--card-bg);
+            padding: 28px;
+        }
+        .problem-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .problem-card p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ── Features ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+        .feature-item {
+            background: var(--card-bg);
+            padding: 28px;
+        }
+        .feature-item h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .feature-item p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ── How It Works ── */
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .how-step {
+            text-align: center;
+            padding: 28px 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+        }
+        .how-step .num {
+            font-family: var(--font-body);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--accent);
+            margin-bottom: 8px;
+            line-height: 1;
+        }
+        .how-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
+        .how-step p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; }
+
+        /* ── Pricing ── */
+        .pricing-card {
+            max-width: 400px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 40px 36px;
+            text-align: center;
+            position: relative;
+        }
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+        .pricing-card .perks {
+            list-style: none;
+            margin: 28px 0;
+            text-align: left;
+        }
+        .pricing-card .perks li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pricing-card .perks li:last-child { border: none; }
+        .pricing-card .btn-primary { width: 100%; text-align: center; }
+
+        /* ── FAQ ── */
+        .faq-list { max-width: 640px; margin: 0 auto; }
+        .faq-item {
+            padding: 18px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-item:last-child { border: none; }
+        .faq-item h4 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: var(--primary);
+            color: #e8e4dc;
+            text-align: center;
+            padding: 72px 0;
+        }
+        .cta-section h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 12px;
+        }
+        .cta-section p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 28px;
+            font-size: 1rem;
+        }
+
+        /* ── Footer ── */
+        footer {
+            padding: 28px 0;
+            text-align: center;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--text-muted); text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            body { font-size: 18px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .problem-grid, .features-grid { grid-template-columns: 1fr; }
+            .how-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .pricing-card { padding: 28px 20px; }
+            .container { padding: 0 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <div class="logo">Keystone</div>
+        <div class="nav-links">
+            <a href="#problem">Problem</a>
+            <a href="#how">How It Works</a>
+            <a href="#features">What's Inside</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="subscribe.html" class="nav-cta">Subscribe</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-badge">Founding subscribers now open</div>
+        <h1>The one weekly brief that makes your <em>AI strategy</em> hold together.</h1>
+        <p>Weekly intelligence for SMB leaders navigating AI chaos. Regulatory changes. Tool analysis. Playbooks. Anti-hype. <strong>Every brief tailored to your industry, size, and AI maturity level.</strong> Delivered every Monday in 5 minutes.</p>
+        <div class="hero-cta-group">
+            <a href="subscribe.html" class="btn-primary">Subscribe — $297/month →</a>
+            <a href="#features" class="btn-secondary">See what's inside</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <h3>$297</h3>
+                <p>per month · cancel anytime</p>
+            </div>
+            <div class="hero-stat">
+                <h3>&lt; 5 min</h3>
+                <p>weekly reading time</p>
+            </div>
+            <div class="hero-stat">
+                <h3>7 sections</h3>
+                <p>regulatory · tools · playbook · ignore</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem -->
+<section class="section" id="problem">
+    <div class="container">
+        <div class="section-label">The Problem</div>
+        <h2>SMB leaders are drowning in AI noise.</h2>
+        <p class="sub">Every vendor claims AI. Every consultant sells fear. Every newsletter hypes the next thing. You need signal, not more noise — and you need a strategy that holds together.</p>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>47 new AI tools launched daily</h3>
+                <p>Most will be dead or irrelevant in 12 months. The cost of picking wrong is not just the subscription — it's the implementation time and organizational disruption wasted.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Regulatory chaos across jurisdictions</h3>
+                <p>EU AI Act enforcement is active. Colorado's AI Act is law. California, New York, and a dozen other states are legislating. SMBs have zero compliance staff tracking this.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Consultants cost $5,000–$15,000 per month</h3>
+                <p>Fractional AI officers want retainers. Big firms won't engage companies under 50 employees. You are stuck between too expensive and too generic.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Boards and investors demand an AI answer</h3>
+                <p>"What is your AI strategy?" is now a standard question. You need a credible, board-ready answer — not a newsletter forward and not a consultant deck you paid $20,000 for.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how" style="background: var(--card-bg);">
+    <div class="container">
+        <div class="section-label">How It Works</div>
+        <h2>Monday morning intelligence. Zero overhead.</h2>
+        <p class="sub">No dashboard. No meetings. No implementation projects. One brief. Five minutes. You act or you ignore with confidence.</p>
+        <div class="how-grid">
+            <div class="how-step">
+                <div class="num">1</div>
+                <h3>We research, curate, and tailor</h3>
+                <p>We track regulatory changes, major tool releases, and AI threats across 20+ sources. Every brief is tailored to your industry, company size, AI maturity level, and regulatory exposure — not a generic newsletter.</p>
+            </div>
+            <div class="how-step">
+                <div class="num">2</div>
+                <h3>We write the brief</h3>
+                <p>Seven sections: executive summary, regulatory radar, tool landscape, implementation playbook, what to ignore, board brief, and cited sources. Every claim linked.</p>
+            </div>
+            <div class="how-step">
+                <div class="num">3</div>
+                <h3>You read and act</h3>
+                <p>Read in 5 minutes. Forward the board brief in 30 seconds. Execute the weekly playbook in 15 minutes. Your AI strategy stays coherent without a full-time executive tracking it.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What's Inside -->
+<section class="section" id="features">
+    <div class="container">
+        <div class="section-label">What's Inside Every Brief</div>
+        <h2>Seven sections. Sourced. Professional. Board-ready.</h2>
+        <p class="sub">This is what a subscriber receives every Monday morning.</p>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h4>The Keystone — Executive Summary</h4>
+                <p>One paragraph on the most important development this week. What changed, why it matters, and whether to act or ignore.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Regulatory Radar</h4>
+                <p>EU AI Act enforcement, Colorado AI Act, state bills, federal guidance. Specific deadlines, scope of impact, and actionable recommendations.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Tool Landscape</h4>
+                <p>Major releases, pricing changes, and deprecations that affect SMBs. Not every launch — only the ones that change the competitive landscape.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Implementation Playbook</h4>
+                <p>A 15-minute weekly task. Decision trees, checklists, and templates you can deploy immediately. You finish reading and can do something.</p>
+            </div>
+            <div class="feature-item">
+                <h4>What to Ignore This Week</h4>
+                <p>The anti-hype section. What is not worth your time, attention, or budget. Saves you from bad investments and pointless debates.</p>
+            </div>
+            <div class="feature-item">
+                <h4>Board Brief</h4>
+                <p>Three bullets your CEO can forward to a board or investor. "We are tracking this." Proof of competence in 30 seconds.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing" style="background: var(--card-bg);">
+    <div class="container">
+        <div class="section-label">Pricing</div>
+        <h2>One tier. No upsells. Cancel anytime.</h2>
+        <p class="sub">Same model as FedBridge — intelligence delivery, not consulting sold.</p>
+        <div class="pricing-card">
+            <div class="price">$297 <span>/ month</span></div>
+            <ul class="perks">
+                <li>Weekly intelligence brief every Monday</li>
+                <li>Regulatory tracking across US, EU, Canada</li>
+                <li>Tool landscape analysis — curated for SMBs</li>
+                <li>Weekly 15-minute implementation playbook</li>
+                <li>"What to Ignore" anti-hype curation</li>
+                <li>Board-ready executive summary</li>
+                <li>Cancel anytime — no contracts, no fees</li>
+            </ul>
+            <a href="subscribe.html" class="btn-primary">Subscribe Now →</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+    <div class="container">
+        <div class="section-label">FAQ</div>
+        <h2>Common questions.</h2>
+        <p class="sub">Straight answers. No sales pitch.</p>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h4>How is this different from a free AI newsletter?</h4>
+                <p>Free newsletters cover headlines for a general audience. Keystone is curated specifically for SMB leaders with three things free newsletters do not provide: regulatory tracking with compliance deadlines, actionable implementation playbooks, and a "what to ignore" section that saves you from wasting money on hype.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Who is this for exactly?</h4>
+                <p>CEOs, COOs, operations directors, and founders at companies with 50-200 employees who need to demonstrate AI competence to customers, boards, or investors. If you cannot afford a $5,000 per month AI consultant but cannot afford to be wrong about AI, you are the target.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What industries do you cover?</h4>
+                <p>All SMBs, with emphasis on regulated and client-facing sectors: professional services, healthcare-adjacent, financial services, insurance, manufacturing, and technology. Regulatory tracking covers EU, US federal, and all 50 US states.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Do you offer consulting or calls?</h4>
+                <p>No. Keystone is an intelligence product, not a consulting service. No meetings, no phone calls, no implementation projects. You receive the brief by email and act on it independently. That is the model.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I cancel?</h4>
+                <p>Yes. Any time. No contracts, no exit fees, no awkward phone call. Cancel and the next Monday's brief is your last.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What is your track record?</h4>
+                <p>Keystone is built by the same team behind FedBridge — a regulatory intelligence service tracking CMMC/DFARS compliance changes for defense contractors. The intelligence delivery methodology is proven. Keystone applies the same approach to AI strategy.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Why $297 per month?</h4>
+                <p>A fractional AI officer costs $5,000-$15,000 per month. An enterprise analyst subscription costs $30,000 per year. A free newsletter costs nothing and delivers nothing actionable. Keystone sits in the middle — less than a consultant, more than a newsletter, and built for SMBs specifically. Compare to the cost of one wrong AI tool decision or one missed regulatory deadline.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-section" id="subscribe">
+    <div class="container">
+        <h2>Ready to make your AI strategy hold together?</h2>
+        <p>One brief a week. Five minutes to read. Zero meetings required.</p>
+        <a href="subscribe.html" class="btn-primary" style="font-size: 1rem; padding: 16px 40px;">Subscribe — $297/month →</a>
+        <p style="margin-top: 14px; font-size: 0.78rem; opacity: 0.5;">Payment via Stripe. Cancel anytime.</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>Keystone Intelligence — AI strategy intelligence for SMB leaders.</p>
+        <p style="margin-top: 4px;"><a href="#">Privacy Policy</a> · <a href="#">Terms of Service</a></p>
+    </div>
+</footer>
+
+</body>
+</html>

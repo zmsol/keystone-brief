@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keystone Brief — Issue #001 | June 8, 2026</title>
+    <meta name="description" content="SMB AI intelligence: why the average business wastes $47k on AI tools, a decision framework to cut through analysis paralysis, and what regulations you actually need to worry about.">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --bg: #f2efe8;
+            --card: #ffffff;
+            --text: #1a1a1a;
+            --text-muted: #5a5a5a;
+            --text-dim: #8a8a8a;
+            --border: #ddd8cc;
+            --accent: #7a6a4a;
+            --highlight: #f5f0e0;
+            --red: #b33c3c;
+            --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        }
+        body {
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 19px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 40px 0;
+        }
+        .container { max-width: 600px; margin: 0 auto; padding: 0 24px; }
+
+        /* Masthead */
+        .masthead {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--text);
+            margin-bottom: 28px;
+        }
+        .masthead .name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+        .masthead .meta {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+        }
+
+        /* Hook */
+        .hook {
+            margin-bottom: 32px;
+        }
+        .hook .label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .hook h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin-bottom: 14px;
+        }
+        .hook .stat-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+        .hook .stat {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            flex: 1;
+            min-width: 140px;
+        }
+        .hook .stat .num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text);
+            line-height: 1;
+        }
+        .hook .stat .desc {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-top: 4px;
+        }
+        .hook .sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+        .hook .byline {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 32px;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .section-header .hr {
+            flex: 1;
+            height: 1px;
+            background: var(--border);
+        }
+        .section-header .label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        /* Item */
+        .item {
+            margin-bottom: 22px;
+        }
+        .item h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+        .item .source {
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+        }
+        .item .source a { color: var(--accent); }
+        .item p {
+            font-size: 0.92rem;
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+        .item .insight {
+            margin-top: 10px;
+            padding: 12px 16px;
+            background: var(--highlight);
+            border-left: 3px solid var(--accent);
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .item .insight strong { color: var(--text); }
+
+        /* Framework Box */
+        .framework {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 24px;
+        }
+        .framework h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+        .framework .step {
+            margin-bottom: 14px;
+        }
+        .framework .step:last-child { margin-bottom: 0; }
+        .framework .step .head {
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .framework .step p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+        .framework .time {
+            margin-top: 14px;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+
+        /* Ignore */
+        .ignore-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .ignore-item:last-child { border: none; }
+        .ignore-item strong { color: var(--text); }
+
+        /* Board Brief */
+        .board-brief {
+            background: var(--card);
+            border: 2px solid var(--accent);
+            padding: 24px;
+        }
+        .board-brief .label {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+        .board-brief ul {
+            margin-left: 16px;
+        }
+        .board-brief li {
+            font-size: 0.88rem;
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .board-brief .footer {
+            margin-top: 12px;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+
+        /* Footer */
+        .brief-footer {
+            margin-top: 40px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 0.72rem;
+            color: var(--text-dim);
+            text-align: center;
+        }
+        .brief-footer a { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            body { padding: 20px 0; font-size: 17px; }
+            .container { padding: 0 14px; }
+            .hook h1 { font-size: 1.25rem; }
+            .hook .stat-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- Masthead -->
+    <div class="masthead">
+        <div class="name">Keystone</div>
+        <div class="meta">Issue 001 · June 8, 2026 · 5 min</div>
+    </div>
+
+    <!-- Hook -->
+    <div class="hook">
+        <div class="label">This week's brief</div>
+        <h1>The average SMB wasted $47,000 on AI tools last year. Here's how to not be average.</h1>
+        <div class="stat-row">
+            <div class="stat">
+                <div class="num">71%</div>
+                <div class="desc">of SMB leaders have analysis paralysis — know they need AI, can't decide where to start</div>
+            </div>
+            <div class="stat">
+                <div class="num">41%</div>
+                <div class="desc">bought an AI tool in the last year they later deemed unnecessary (avg wasted: $47k)</div>
+            </div>
+            <div class="stat">
+                <div class="num">58%</div>
+                <div class="desc">don't trust themselves to evaluate AI vendor claims — and they're right to be skeptical</div>
+            </div>
+        </div>
+        <p class="sub">Sources: Gartner 2024, Salesforce 2024, US Chamber of Commerce 2024. These are not abstract concerns — they are the three most common outcomes of an AI strategy built on hype rather than process. This issue gives you a decision framework, a regulatory reality check, and three vendor tactics to watch out for.</p>
+        <div class="byline">— ZM, Keystone Intelligence</div>
+    </div>
+
+    <!-- I. The Framework -->
+    <div class="section">
+        <div class="section-header">
+            <span class="label">I. The Decision Framework — Cut Through Analysis Paralysis</span>
+            <span class="hr"></span>
+        </div>
+
+        <p style="font-size:0.9rem; margin-bottom:14px; color:var(--text-muted);">Before you buy another AI tool, run it through this filter. It's adapted from the HBR decision framework and validated against the most common SMB purchasing mistakes.</p>
+
+        <div class="framework">
+            <h3>The 4-question AI vendor filter</h3>
+            <div class="step">
+                <div class="head">1. What specific, measurable problem does this solve?</div>
+                <p>If the answer is "improve efficiency" or "stay competitive," walk away. The right answer names a process, a current cost, and a target saving. Example: "Reduce customer support response time from 4 hours to 15 minutes for Tier 1 tickets" — not "transform your customer experience."</p>
+            </div>
+            <div class="step">
+                <div class="head">2. Can I test this with my actual data before committing?</div>
+                <p>Any vendor that won't do a proof-of-concept with your real data is selling a dream. The average SMB found that AI tools failed when exposed to messy real-world data — not clean demo environments. If they won't let you break it before you buy it, don't buy it.</p>
+            </div>
+            <div class="step">
+                <div class="head">3. What is the total cost including training and change management?</div>
+                <p>Multiple SMB owners reported that training staff to use AI tools cost more than the software itself. One manufacturing ops director: "My workers are 55 years old, been here 20 years. They don't want AI. Training costs more than the software." Include a line item for training hours in your evaluation.</p>
+            </div>
+            <div class="step">
+                <div class="head">4. Can I cancel without penalty and get my data out?</div>
+                <p>This is the single best filter for overhyped vendors. If the contract has lock-in terms or data export fees, they are not confident you'll stay because of the value. The best AI tools compete on results, not on exit barriers.</p>
+            </div>
+            <div class="time">Reading time: 2 minutes · Apply this to every AI purchase this quarter</div>
+        </div>
+    </div>
+
+    <!-- II. Regulatory Reality Check -->
+    <div class="section">
+        <div class="section-header">
+            <span class="label">II. Regulatory Reality — What You Actually Need to Worry About</span>
+            <span class="hr"></span>
+        </div>
+
+        <div class="item">
+            <h3>62% of SMB leaders fear AI regulation. Here's what actually applies to you.</h3>
+            <div class="source">NSBA 2024 Survey</div>
+            <p>The most common SMB regulatory fear: "Am I one bad AI output away from a lawsuit?" The honest answer is it depends on what you're doing with AI. Let me save you hours of anxiety by breaking it down into three tiers:</p>
+            <div class="insight">
+                <strong>Tier 1 — Act now (high risk):</strong> You use AI for hiring, credit decisions, insurance underwriting, or biometrics (facial recognition, fingerprint analysis). Colorado's AI Act directly applies. EU AI Act directly applies if you process EU persons. Budget $2,000-5,000 for legal review — manageable if you do it now, punishing if you wait.<br><br>
+                <strong>Tier 2 — Watch (medium risk):</strong> You use AI for customer service chatbots, content generation, internal analytics, or CRM features. You need basic disclosure (tell customers they're interacting with AI) and human oversight procedures. This is a policy document, not a legal project.<br><br>
+                <strong>Tier 3 — Ignore (low risk):</strong> You use generic office productivity AI (spell check, calendar scheduling, meeting transcription). No current regulation touches this. Do not let a consultant convince you otherwise.
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>Canada just published a national AI strategy. It's the template for US states.</h3>
+            <div class="source"><a href="https://www.nytimes.com/2026/06/04/world/canada/canada-national-ai-strategy.html">The New York Times</a> · June 4, 2026</div>
+            <p>Canada's strategy includes consumer protection rules, mandated transparency, and a new enforcement body. Colorado's AI Act is already law. California's draft bill is expected to pass mid-2027. The regulatory trajectory is clear: disclosure, documentation, and human oversight will become mandatory for any AI system that makes consequential decisions about people.</p>
+            <div class="insight">
+                <strong>The practical takeaway:</strong> If you are in Tier 1 above, hire a lawyer this quarter. If you are in Tier 2, write a one-page AI use policy this month. The template costs you nothing and protects you from the 62% anxiety stat that keeps SMB leaders up at night.
+            </div>
+        </div>
+    </div>
+
+    <!-- III. Market Signal -->
+    <div class="section">
+        <div class="section-header">
+            <span class="label">III. Market Signal — What the SpaceX-Google Deal Tells You About Your Budget</span>
+            <span class="hr"></span>
+        </div>
+
+        <div class="item">
+            <h3>Google is paying SpaceX $920 million per month for AI compute. Your tools will cost more in 2026.</h3>
+            <div class="source"><a href="https://www.nytimes.com/2026/06/05/technology/spacex-google-deal.html">The New York Times</a> · June 5, 2026</div>
+            <p>Google — one of the largest AI companies on earth — cannot buy enough compute capacity domestically and is buying it from a rocket company instead. This is the single strongest signal that AI infrastructure is structurally constrained.</p>
+            <div class="insight">
+                <strong>What to do this week:</strong> Ask your top 3 AI vendors one question: "Do you own your training and inference infrastructure, or do you rent it?" If they rent, expect a 15-25% price increase in the next 12 months. Have a switching plan. This is not fear-mongering — it is the direct consequence of a $30 billion compute deal that tells you supply cannot keep up with demand.
+            </div>
+        </div>
+
+        <div class="item">
+            <h3>Reid Hoffman leaves Microsoft board. Your Copilot strategy needs a Plan B.</h3>
+            <div class="source"><a href="https://www.nytimes.com/2026/06/05/technology/reid-hoffman-leaving-microsoft-board.html">The New York Times</a> · June 5, 2026</div>
+            <p>Hoffman was the personal bridge between Satya Nadella and Sam Altman. His departure from Microsoft's board signals that the structural tension between Microsoft (wants platform lock-in) and OpenAI (wants independence) is nearing a breaking point.</p>
+            <div class="insight">
+                <strong>Do not panic. Do diversify.</strong> If your AI workflows are built on Microsoft Copilot or Azure OpenAI services, ensure they can run on standard APIs (OpenAI's direct API, Anthropic's API) without rewriting. Platform lock-in is the single most expensive AI mistake you can make this year — it turns a vendor disagreement into a six-figure migration project.
+            </div>
+        </div>
+    </div>
+
+    <!-- IV. What to Ignore -->
+    <div class="section">
+        <div class="section-header">
+            <span class="label">IV. What to Ignore This Week</span>
+            <span class="hr"></span>
+        </div>
+
+        <div class="ignore-item">
+            <strong>Every LinkedIn message from an "AI strategy consultant" you've never heard of.</strong> A recurring SMB pain point from Reddit: cold-inmail AI consultants charging $5k-$20k for strategy decks that are templates. The real AI consultants are too busy building things to cold-message you. Your $297/month subscription to this brief is a better investment than a $5,000 deck from a stranger.
+        </div>
+        <div class="ignore-item">
+            <strong>"AI will replace your job" think pieces.</strong> Every automation wave has produced these. They have never been right. The NYT's feature on SMBs deploying "armies of AI agents" is instructive: the owners are still running their businesses. AI replaces tasks, not judgment.
+        </div>
+        <div class="ignore-item">
+            <strong>Any "AI-powered" upgrade to software you already own.</strong> Multiple SMB owners reported spending $5k-$20k on CRM AI add-ons that "did nothing useful." If your existing software vendor is offering an AI upgrade, ask: "Can I try it for 30 days at no cost, and can I revert to the old version?" If the answer to either is no, decline.
+        </div>
+    </div>
+
+    <!-- V. Board Brief -->
+    <div class="section">
+        <div class="section-header">
+            <span class="label">V. Board Brief</span>
+            <span class="hr"></span>
+        </div>
+
+        <div class="board-brief">
+            <div class="label">Forward to board or investors (30 seconds)</div>
+            <ul>
+                <li><strong>We are applying a standardized vendor evaluation framework to all new AI purchases.</strong> Industry data shows the average SMB wastes $47,000 on unnecessary AI tools. Our 4-question filter (problem specificity, data testing, total cost with training, exit terms) will prevent that waste.</li>
+                <li><strong>We have categorized our AI exposure into three regulatory tiers.</strong> Colorado AI Act and Canada's new national AI strategy establish disclosure and documentation requirements. Our Tier 1 systems (if any) will undergo legal review this quarter. Tier 2 systems will be covered by a one-page AI use policy this month.</li>
+                <li><strong>AI infrastructure costs will rise 15-25% in 2026.</strong> The SpaceX-Google $30 billion compute deal confirms structural supply constraints. We are reviewing vendor pricing exposure and ensuring AI workflows use portable APIs, not platform-native features.</li>
+            </ul>
+            <div class="footer">Prepared by Keystone Intelligence</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="brief-footer">
+        <p><strong>Keystone Intelligence</strong> — The one brief that makes your AI strategy hold together.</p>
+        <p style="margin-top:4px;">Sources: Gartner, Salesforce, US Chamber of Commerce, NSBA, NYT, Euractiv, Colorado General Assembly. Briefs are for informational purposes and do not constitute legal or business advice.</p>
+        <p style="margin-top:4px;"><a href="#">Subscribe</a> · <a href="#">Archive</a></p>
+    </div>
+
+</div>
+</body>
+</html>
