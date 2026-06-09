@@ -1,0 +1,19 @@
+# Default: allow all well-behaved crawlers
+User-agent: *
+Allow: /
+
+# Explicitly allow AI/LLM crawlers (these respect robots.txt)
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Sitemap
+Sitemap: https://zmsol.github.io/keystone-brief/sitemap.xml
