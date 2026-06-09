@@ -242,7 +242,8 @@
 
     <div style="display:none; text-align:center; padding: 20px 0;" id="success-message">
         <p style="font-size:1.1rem; font-weight:600; margin-bottom: 8px;">You're subscribed.</p>
-        <p style="color:var(--text-muted); font-size:0.88rem;">Your first personalized brief arrives Monday. You'll receive a payment link by email to complete your subscription.</p>
+        <p style="color:var(--text-muted); font-size:0.88rem;">Redirecting you to complete payment...</p>
+    <p style="color:var(--text-dim); font-size:0.78rem; margin-top:8px;">Your info is saved. Just complete the Stripe payment and you're all set.</p>
     </div>
 
     <p class="disclaimer">Payment via Stripe. Your information is never shared and used only to personalize your briefs.</p>
@@ -250,6 +251,10 @@
 </div>
 
 <script>
+    // CONFIG — update these when you have the URLs
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDx_gh5-sbJx5p-cLM1qcjGs5GwgWLHfRkz_W_HlbXt5cXz_id-2rJ6kunP-X-7tSPJw/exec';
+    const STRIPE_URL = 'https://buy.stripe.com/bJecN607yc6XddEbgcgnK02';
+    
     async function handleSubmit(e) {
         e.preventDefault();
         const form = e.target;
@@ -269,9 +274,9 @@
         };
         const btn = form.querySelector('.btn-submit');
         btn.textContent = 'Submitting...';
-        btn.disabled = true;
+        // Send to Google Apps Script
         try {
-            await fetch('YOUR_GOOGLE_APPS_SCRIPT_URL_HERE', {
+            await fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'application/json' },
@@ -280,11 +285,18 @@
         } catch (err) {
             console.log('Form submitted');
         }
+
+        // Show success + redirect to Stripe
         form.style.display = 'none';
         document.getElementById('success-message').style.display = 'block';
+
+        // Redirect to Stripe after 2 seconds
+        setTimeout(() => {
+            window.location.href = STRIPE_URL;
+        }, 2000);
+
         return false;
     }
 </script>
-
 </body>
 </html>
